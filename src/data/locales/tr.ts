@@ -2,7 +2,7 @@ import type { LocaleStrings } from "@/types";
 
 export const tr: LocaleStrings = {
   meta: {
-    title: "Lutezzi | Full-Stack Geliştirici Portfolyo",
+    title: "Lutezzi | Full-Stack Developer",
     description:
       "Full-stack mühendislik, IoT, oyun geliştirme ve modern web uygulamalarını sergileyen terminal estetikli portfolyo.",
   },

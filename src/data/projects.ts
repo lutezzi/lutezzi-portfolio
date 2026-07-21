@@ -2,30 +2,30 @@ import type { ProjectItem } from "@/types";
 
 export const projectsData: ProjectItem[] = [
   {
-    slug: "personal-portfolio",
+    slug: "lutezzi-portfolio",
     title: {
-      en: "Personal Portfolio Website",
-      tr: "Kişisel Portfolyo Websitesi",
+      en: "Lutezzi Portfolio — Terminal Edition",
+      tr: "Lutezzi Portfolyo — Terminal Sürümü",
     },
     shortDescription: {
-      en: "A responsive, high-performance portfolio UI built with a component-based architecture for maintainable code.",
-      tr: "Sürdürülebilir kod için bileşen tabanlı mimariyle geliştirilmiş, responsive ve yüksek performanslı portfolyo arayüzü.",
+      en: "Production-ready terminal/CLI-inspired portfolio with TR/EN i18n, theme switching, scroll animations, and modular content architecture.",
+      tr: "TR/EN i18n, tema değiştirme, scroll animasyonları ve modüler içerik mimarisiyle üretime hazır terminal/CLI estetikli portfolyo.",
     },
     fullDescription: {
-      en: "Designed and developed a personal portfolio website using modern web technologies. The project features a fully responsive layout compatible with all devices, a high-performance user interface, and a component-based architecture that ensures long-term code maintainability and scalability.",
-      tr: "Modern web teknolojileri kullanılarak kişisel bir portfolyo websitesi tasarlandı ve geliştirildi. Tüm cihazlarla uyumlu tam responsive düzen, yüksek performanslı kullanıcı arayüzü ve kodun uzun vadeli sürdürülebilirliğini sağlayan bileşen tabanlı mimari içerir.",
+      en: "This is the portfolio you're browsing right now — a cyberpunk-inspired developer site built with Next.js App Router. It features a terminal aesthetic with CRT scanlines, glassmorphism UI, Framer Motion scroll-triggered animations, three theme modes (Dark Terminal, Light Paper, High-Contrast), full Turkish/English localization with localStorage persistence, interactive education accordion, project detail pages, and typed data files for easy content updates.",
+      tr: "Şu an incelediğiniz portfolyo sitesi — Next.js App Router ile geliştirilmiş siberpunk ilhamlı bir geliştirici sitesi. CRT scanline efektleri ve glassmorphism UI ile terminal estetiği, Framer Motion kaydırma animasyonları, üç tema modu (Karanlık Terminal, Açık Kağıt, Yüksek Kontrast), localStorage ile kalıcı TR/EN yerelleştirme, interaktif eğitim accordion'u, proje detay sayfaları ve kolay içerik güncellemesi için tipli veri dosyaları içerir.",
     },
     problem: {
-      en: "Developers need a professional online presence that showcases their skills across devices while keeping the codebase organized and easy to update.",
-      tr: "Geliştiricilerin becerilerini tüm cihazlarda sergileyebilecek, kod tabanı düzenli ve güncellenmesi kolay profesyonel bir online varlığa ihtiyacı vardır.",
+      en: "Developers need a portfolio that reflects their technical identity — not a generic template — while remaining accessible, performant, bilingual, and easy to maintain without touching component code for every content change.",
+      tr: "Geliştiricilerin generic bir şablondan öte teknik kimliklerini yansıtan; erişilebilir, performanslı, iki dilli ve her içerik değişikliğinde bileşen koduna dokunmadan güncellenebilir bir portfolyoya ihtiyacı vardır.",
     },
     architecture: {
-      en: "Component-based frontend architecture with reusable UI modules. Responsive design principles applied across mobile, tablet and desktop breakpoints. Styling managed through utility-first CSS for consistent and maintainable design tokens.",
-      tr: "Yeniden kullanılabilir UI modülleriyle bileşen tabanlı frontend mimarisi. Mobil, tablet ve masaüstü breakpoint'lerinde responsive tasarım prensipleri. Tutarlı ve sürdürülebilir tasarım token'ları için utility-first CSS ile stil yönetimi.",
+      en: "Next.js App Router with modular sections, Zustand stores for theme/locale persistence, separated locale/project/education data files, CSS custom properties for theme switching, Framer Motion viewport animations, and SSG project detail routes. Deployed on Vercel with custom domain lutezzi.space.",
+      tr: "Modüler section'lar ile Next.js App Router, tema/yerel ayar kalıcılığı için Zustand store'ları, ayrılmış locale/proje/eğitim veri dosyaları, tema değişimi için CSS custom property'ler, Framer Motion viewport animasyonları ve SSG proje detay route'ları. Vercel üzerinde lutezzi.space özel domain ile dağıtım.",
     },
-    tags: ["Portfolio", "Frontend", "Responsive"],
-    techStack: ["React.js", "Vite", "Tailwind CSS"],
-    githubUrl: "https://github.com/lutezzi",
+    tags: ["Portfolio", "Next.js", "Terminal UI"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Zustand"],
+    githubUrl: "https://github.com/lutezzi/lutezzi-portfolio",
     liveUrl: "https://lutezzi.space",
     featured: true,
     screenshots: [],

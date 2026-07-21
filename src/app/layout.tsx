@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Lutezzi | Full-Stack Developer Portfolio",
+    default: "Lutezzi | Full-Stack Developer",
     template: "%s | Lutezzi",
   },
   description:
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US"],
     url: SITE_URL,
     siteName: "Lutezzi Portfolio",
-    title: "Lutezzi | Full-Stack Developer Portfolio",
+    title: "Lutezzi | Full-Stack Developer",
     description:
       "Terminal-inspired portfolio showcasing web development, Discord bots, IoT projects, and modern applications.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lutezzi | Full-Stack Developer Portfolio",
+    title: "Lutezzi | Full-Stack Developer",
     description:
       "Terminal-inspired portfolio showcasing web development, Discord bots, IoT, and modern web applications.",
   },
