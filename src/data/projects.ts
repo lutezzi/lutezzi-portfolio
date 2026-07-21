@@ -54,7 +54,7 @@ export const projectsData: ProjectItem[] = [
     },
     tags: ["Real-Time", "Backend", "WebSocket"],
     techStack: ["Node.js", "Socket.io", "Express"],
-    githubUrl: "https://github.com/lutezzi",
+    githubUrl: "https://github.com/lutezzi/server-side-chat-app",
     featured: true,
     screenshots: [],
   },
