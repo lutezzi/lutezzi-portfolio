@@ -98,6 +98,7 @@ export interface LocaleStrings {
     viewLive: string;
     viewGithub: string;
     featured: string;
+    scrollHint: string;
   };
   projectDetail: {
     back: string;

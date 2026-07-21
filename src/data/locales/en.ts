@@ -61,6 +61,7 @@ export const en: LocaleStrings = {
     viewLive: "Live Demo",
     viewGithub: "GitHub",
     featured: "FEATURED",
+    scrollHint: "↓ Scroll for more projects",
   },
   projectDetail: {
     back: "← Back to Projects",

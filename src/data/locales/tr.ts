@@ -61,6 +61,7 @@ export const tr: LocaleStrings = {
     viewLive: "Canlı Demo",
     viewGithub: "GitHub",
     featured: "ÖNE ÇIKAN",
+    scrollHint: "↓ Daha fazla proje için kaydır",
   },
   projectDetail: {
     back: "← Projelere Dön",

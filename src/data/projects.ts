@@ -31,30 +31,31 @@ export const projectsData: ProjectItem[] = [
     screenshots: [],
   },
   {
-    slug: "realtime-messaging",
+    slug: "hislerimsana",
     title: {
-      en: "Real-Time Messaging Application",
-      tr: "Gerçek Zamanlı Mesajlaşma Uygulaması",
+      en: "hislerimsana — Personal Bio Link Page",
+      tr: "hislerimsana — Kişisel Bio / Link Sayfası",
     },
     shortDescription: {
-      en: "Low-latency real-time messaging app with bidirectional communication and server-side logic management.",
-      tr: "Düşük gecikmeli, çift yönlü iletişim ve sunucu tarafı mantık yönetimi sunan gerçek zamanlı mesajlaşma uygulaması.",
+      en: "Linktree-style personal bio page with video background, ambient music, Discord-style status card, and atmospheric animations — built with vanilla HTML/CSS/JS.",
+      tr: "Video arka plan, ambient müzik, Discord tarzı durum kartı ve atmosferik animasyonlarla Linktree tarzı kişisel bio sayfası — vanilla HTML/CSS/JS ile geliştirildi.",
     },
     fullDescription: {
-      en: "Developed a real-time messaging application enabling low-latency data transmission between users. Managed server-side logic and bidirectional communication processes using WebSocket-based architecture for instant message delivery and live user interactions.",
-      tr: "Kullanıcılar arasında düşük gecikmeli veri iletimi sağlayan gerçek zamanlı bir mesajlaşma uygulaması geliştirildi. Anlık mesaj iletimi ve canlı kullanıcı etkileşimleri için WebSocket tabanlı mimari kullanılarak sunucu tarafı mantığı ve çift yönlü iletişim süreçleri yönetildi.",
+      en: "A single-page personal link hub inspired by Linktree and guns.lol aesthetics. Features a click-to-enter loader (browser autoplay compliance), looping video background with canvas snow/star effects, toggleable background music, profile block with Discord avatar decoration and typewriter username, Discord-style status card with badge tooltips (Nitro, HypeSquad, boost, Orbs), expandable social links (GitHub, Discord, SoundCloud), and a localStorage-based view counter with one increment per session.",
+      tr: "Linktree ve guns.lol estetiğinden ilham alan tek sayfalık kişisel link hub'ı. Click-to-enter loader (tarayıcı otomatik oynatma uyumu), canvas kar/yıldız efektli döngüsel video arka plan, aç/kapa arka plan müziği, Discord avatar dekorasyonlu profil bloğu ve typewriter kullanıcı adı, rozet tooltip'li Discord tarzı durum kartı (Nitro, HypeSquad, boost, Orbs), genişletilebilir sosyal linkler (GitHub, Discord, SoundCloud) ve oturum başına tek artışlı localStorage görüntülenme sayacı içerir.",
     },
     problem: {
-      en: "Traditional HTTP request-response cycles cannot deliver instant messaging experiences with acceptable latency for real-time user communication.",
-      tr: "Geleneksel HTTP istek-yanıt döngüleri, gerçek zamanlı kullanıcı iletişimi için kabul edilebilir gecikmeyle anlık mesajlaşma deneyimi sunamaz.",
+      en: "Generic link-in-bio tools offer limited customization and atmosphere — a developer's personal page should feel immersive and unique while remaining lightweight enough for static hosting.",
+      tr: "Generic link-in-bio araçları sınırlı özelleştirme ve atmosfer sunar — bir geliştiricinin kişisel sayfası, statik hosting için yeterince hafif kalırken sürükleyici ve özgün hissettirmelidir.",
     },
     architecture: {
-      en: "Node.js backend with Express handling REST endpoints and Socket.io managing WebSocket connections. Event-driven architecture for real-time message broadcasting, room-based chat channels, and persistent connection management.",
-      tr: "REST endpoint'lerini yöneten Express ve WebSocket bağlantılarını yöneten Socket.io ile Node.js backend. Gerçek zamanlı mesaj yayını, oda tabanlı sohbet kanalları ve kalıcı bağlantı yönetimi için olay güdümlü mimari.",
+      en: "Vanilla HTML/CSS/JS with no framework dependency. script.js orchestrates loader flow, audio playback, typewriter animation, view counting, and canvas particle effects; styles.css handles theme, layout, tooltips, and transitions; assets/ stores avatar, music, badge images, and background video. Deployed as static files on Vercel with custom domain hislerimsana.xyz.",
+      tr: "Framework bağımlılığı olmayan vanilla HTML/CSS/JS. script.js loader akışı, ses oynatma, typewriter animasyonu, görüntülenme sayacı ve canvas parçacık efektlerini yönetir; styles.css tema, layout, tooltip ve geçişleri sağlar; assets/ avatar, müzik, rozet görselleri ve arka plan videosunu barındırır. hislerimsana.xyz özel domain ile Vercel üzerinde statik dosya olarak dağıtılır.",
     },
-    tags: ["Real-Time", "Backend", "WebSocket"],
-    techStack: ["Node.js", "Socket.io", "Express"],
-    githubUrl: "https://github.com/lutezzi/server-side-chat-app",
+    tags: ["Personal Site", "Bio Link", "Static Web"],
+    techStack: ["HTML", "CSS", "JavaScript", "Vercel"],
+    githubUrl: "https://github.com/lutezzi/hislerimsana",
+    liveUrl: "https://hislerimsana.xyz",
     featured: true,
     screenshots: [],
   },
@@ -127,6 +128,34 @@ export const projectsData: ProjectItem[] = [
       "/projects/sharks-bot-website/features-moderation-embed.png",
       "/projects/sharks-bot-website/features-setup-voice.png",
     ],
+  },
+  {
+    slug: "realtime-messaging",
+    title: {
+      en: "Real-Time Messaging Application",
+      tr: "Gerçek Zamanlı Mesajlaşma Uygulaması",
+    },
+    shortDescription: {
+      en: "Low-latency real-time messaging app with bidirectional communication and server-side logic management.",
+      tr: "Düşük gecikmeli, çift yönlü iletişim ve sunucu tarafı mantık yönetimi sunan gerçek zamanlı mesajlaşma uygulaması.",
+    },
+    fullDescription: {
+      en: "Developed a real-time messaging application enabling low-latency data transmission between users. Managed server-side logic and bidirectional communication processes using WebSocket-based architecture for instant message delivery and live user interactions.",
+      tr: "Kullanıcılar arasında düşük gecikmeli veri iletimi sağlayan gerçek zamanlı bir mesajlaşma uygulaması geliştirildi. Anlık mesaj iletimi ve canlı kullanıcı etkileşimleri için WebSocket tabanlı mimari kullanılarak sunucu tarafı mantığı ve çift yönlü iletişim süreçleri yönetildi.",
+    },
+    problem: {
+      en: "Traditional HTTP request-response cycles cannot deliver instant messaging experiences with acceptable latency for real-time user communication.",
+      tr: "Geleneksel HTTP istek-yanıt döngüleri, gerçek zamanlı kullanıcı iletişimi için kabul edilebilir gecikmeyle anlık mesajlaşma deneyimi sunamaz.",
+    },
+    architecture: {
+      en: "Node.js backend with Express handling REST endpoints and Socket.io managing WebSocket connections. Event-driven architecture for real-time message broadcasting, room-based chat channels, and persistent connection management.",
+      tr: "REST endpoint'lerini yöneten Express ve WebSocket bağlantılarını yöneten Socket.io ile Node.js backend. Gerçek zamanlı mesaj yayını, oda tabanlı sohbet kanalları ve kalıcı bağlantı yönetimi için olay güdümlü mimari.",
+    },
+    tags: ["Real-Time", "Backend", "WebSocket"],
+    techStack: ["Node.js", "Socket.io", "Express"],
+    githubUrl: "https://github.com/lutezzi/server-side-chat-app",
+    featured: false,
+    screenshots: [],
   },
 ];
 
