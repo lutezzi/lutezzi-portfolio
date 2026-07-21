@@ -13,8 +13,8 @@ export const NAV_SECTIONS = [
 export const SOCIAL_LINKS = {
   github: "https://github.com/lutezzi",
   linkedin: "https://linkedin.com/in/yigityılmaz",
-  discord: "https://discord.com/users/lutezzi",
-  email: "mailto:hello@lutezzi.space",
+  discord: "https://discord.com/users/852608635203878912",
+  email: "#",
 } as const;
 
 export const STORAGE_KEYS = {
