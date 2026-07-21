@@ -10,6 +10,9 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
 const socialItems = [
   { key: "github", icon: Code2, href: SOCIAL_LINKS.github, label: "GitHub" },
   { key: "linkedin", icon: Link2, href: SOCIAL_LINKS.linkedin, label: "LinkedIn" },
@@ -23,21 +26,42 @@ export function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!accessKey) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+      return;
+    }
+
     setStatus("sending");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const subject = String(formData.get("subject") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const botcheck = String(formData.get("botcheck") ?? "").trim();
+
+    if (botcheck) {
+      setStatus("success");
+      form.reset();
+      setTimeout(() => setStatus("idle"), 5000);
+      return;
+    }
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          name: formData.get("name"),
-          email: formData.get("email"),
-          subject: formData.get("subject"),
-          message: formData.get("message"),
-          botcheck: formData.get("botcheck"),
+          access_key: accessKey,
+          name,
+          email,
+          subject,
+          message,
+          from_name: "Lutezzi Portfolio",
+          replyto: email,
         }),
       });
 
@@ -75,7 +99,7 @@ export function Contact() {
               noValidate
             >
               <input
-                type="checkbox"
+                type="text"
                 name="botcheck"
                 tabIndex={-1}
                 autoComplete="off"
