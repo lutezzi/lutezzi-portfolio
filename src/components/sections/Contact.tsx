@@ -25,20 +25,35 @@ export function Contact() {
     e.preventDefault();
     setStatus("sending");
 
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const message = formData.get("message") as string;
 
-    if (message && message.length >= 10) {
-      setStatus("success");
-      form.reset();
-    } else {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          subject: formData.get("subject"),
+          message: formData.get("message"),
+          botcheck: formData.get("botcheck"),
+        }),
+      });
+
+      const result = (await response.json()) as { success?: boolean };
+
+      if (response.ok && result.success) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
       setStatus("error");
     }
 
-    setTimeout(() => setStatus("idle"), 4000);
+    setTimeout(() => setStatus("idle"), 5000);
   };
 
   return (
@@ -59,6 +74,15 @@ export function Contact() {
               className="space-y-4 lg:col-span-3"
               noValidate
             >
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+
               {(["name", "email", "subject"] as const).map((field) => (
                 <div key={field}>
                   <label
@@ -72,11 +96,13 @@ export function Contact() {
                     name={field}
                     type={field === "email" ? "email" : "text"}
                     required
+                    disabled={status === "sending"}
                     className={cn(
                       "w-full rounded border border-[var(--border)] bg-[var(--background)]",
                       "px-3 py-2 font-mono text-sm text-[var(--foreground)]",
                       "placeholder:text-[var(--muted)] focus:border-[var(--accent-green)]",
-                      "focus:outline-none focus:ring-1 focus:ring-[var(--accent-green)]"
+                      "focus:outline-none focus:ring-1 focus:ring-[var(--accent-green)]",
+                      "disabled:cursor-not-allowed disabled:opacity-60"
                     )}
                     placeholder={`"${t.contact[field]}"`}
                     aria-required="true"
@@ -97,11 +123,13 @@ export function Contact() {
                   required
                   rows={5}
                   minLength={10}
+                  disabled={status === "sending"}
                   className={cn(
                     "w-full resize-y rounded border border-[var(--border)] bg-[var(--background)]",
                     "px-3 py-2 font-mono text-sm text-[var(--foreground)]",
                     "placeholder:text-[var(--muted)] focus:border-[var(--accent-green)]",
-                    "focus:outline-none focus:ring-1 focus:ring-[var(--accent-green)]"
+                    "focus:outline-none focus:ring-1 focus:ring-[var(--accent-green)]",
+                    "disabled:cursor-not-allowed disabled:opacity-60"
                   )}
                   placeholder={`"""${t.contact.message}"""`}
                   aria-required="true"

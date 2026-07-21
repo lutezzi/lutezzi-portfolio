@@ -81,8 +81,8 @@ export const tr: LocaleStrings = {
     message: "mesaj",
     send: "send_message() çalıştır",
     sending: "İletiliyor...",
-    success: "✓ Mesaj başarıyla kuyruğa alındı. Kısa sürede yanıtlayacağım.",
-    error: "✗ İletim başarısız. Lütfen tekrar deneyin.",
+    success: "✓ Mesajın e-posta kutuma ulaştı. En kısa sürede dönüş yapacağım.",
+    error: "✗ Mesaj gönderilemedi. Lütfen tekrar dene veya doğrudan e-posta ile ulaş.",
     socialTitle: "Bağlantılar",
   },
   footer: {

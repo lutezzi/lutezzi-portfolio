@@ -52,3 +52,25 @@ src/
 - Framer Motion
 - Zustand
 - Lucide React
+
+## Contact Form (Web3Forms)
+
+The contact form sends real emails via [Web3Forms](https://web3forms.com) (free tier: 250 submissions/month).
+
+### Setup
+
+1. Go to [web3forms.com](https://web3forms.com) and enter the email where you want to receive messages (e.g. `hello@lutezzi.space`).
+2. Copy your **Access Key**.
+3. Create `.env.local` in the project root:
+
+```env
+WEB3FORMS_ACCESS_KEY=your_access_key_here
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+4. Restart the dev server and test the form on the Contact section.
+5. For production on Vercel → **Settings → Environment Variables**, add:
+   - `WEB3FORMS_ACCESS_KEY` = your key
+   - Redeploy after saving.
+
+The API key stays server-side in `/api/contact` — it is never exposed to the browser.

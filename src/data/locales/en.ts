@@ -81,8 +81,8 @@ export const en: LocaleStrings = {
     message: "message",
     send: "Execute send_message()",
     sending: "Transmitting...",
-    success: "✓ Message queued successfully. I'll respond shortly.",
-    error: "✗ Transmission failed. Please try again.",
+    success: "✓ Message delivered to my inbox. I'll reply via email shortly.",
+    error: "✗ Message could not be sent. Please try again or email me directly.",
     socialTitle: "Connect via",
   },
   footer: {
