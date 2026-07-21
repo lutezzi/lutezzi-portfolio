@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lutezzi Portfolio — Terminal Edition
+
+Cyberpunk/CLI-inspired developer portfolio built with **Next.js App Router**, **Tailwind CSS**, **Framer Motion**, and **Zustand**.
+
+## Features
+
+- Terminal aesthetic with CRT scanline effects and glassmorphism
+- Three theme modes: Dark Terminal, Light Paper, High-Contrast Terminal
+- Full TR/EN localization with `localStorage` persistence
+- Scroll-triggered Framer Motion animations
+- Interactive education timeline with accordion
+- Project detail pages at `/projects/[slug]`
+- Accessible components (ARIA, keyboard navigation, focus states)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content Management
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All content is separated into typed data files for easy updates:
 
-## Learn More
+| File | Purpose |
+|------|---------|
+| `src/data/locales/en.ts` | English UI strings |
+| `src/data/locales/tr.ts` | Turkish UI strings |
+| `src/data/projects.ts` | Project cards & detail pages |
+| `src/data/education.ts` | Education timeline entries |
+| `src/data/skills.ts` | Skill categories |
+| `src/lib/constants.ts` | Social links, nav config |
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                  # Next.js App Router pages
+├── components/
+│   ├── layout/           # Navbar, Footer, ScrollToTop
+│   ├── sections/         # Hero, About, Education, Skills, Projects, Contact
+│   ├── ui/               # Reusable UI (TerminalWindow, etc.)
+│   └── providers/        # Theme provider
+├── data/                 # Content dictionaries (TR/EN)
+├── hooks/                # useTranslation, useLocalizeFn
+├── lib/                  # Constants, animations, utils
+├── stores/               # Zustand theme & locale stores
+└── types/                # TypeScript interfaces
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Zustand
+- Lucide React
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy to Vercel (lutezzi.space)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push the repo to GitHub and import it at [vercel.com/new](https://vercel.com/new).
+2. Add environment variable:
+   - `NEXT_PUBLIC_SITE_URL` = `https://lutezzi.space`
+3. Deploy. Vercel auto-detects Next.js.
+
+### Custom domain DNS (domain registrar)
+
+In your domain panel for **lutezzi.space**, add:
+
+| Type | Name | Value |
+|------|------|-------|
+| `A` | `@` | `76.76.21.21` |
+| `CNAME` | `www` | `cname.vercel-dns.com` |
+
+Then in Vercel → Project → **Settings → Domains**, add:
+- `lutezzi.space`
+- `www.lutezzi.space` (redirect to apex)
+
+`www` → `lutezzi.space` redirect is also configured in `next.config.ts`.
+
+## Build
+
+```bash
+npm run build
+npm start
+```

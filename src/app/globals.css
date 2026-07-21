@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Dark Terminal (default) ── */
+:root,
+[data-theme="dark"] {
+  --background: #0a0e0a;
+  --foreground: #c8ffc8;
+  --surface: rgba(10, 20, 10, 0.85);
+  --surface-elevated: rgba(15, 30, 15, 0.9);
+  --muted: #6b8f6b;
+  --border: rgba(0, 255, 136, 0.15);
+  --accent-green: #00ff88;
+  --accent-cyan: #00d4ff;
+  --accent-amber: #ffb000;
+  --accent-red: #ff4444;
+  --glow: 0 0 20px rgba(0, 255, 136, 0.08);
+  --glow-strong: 0 0 40px rgba(0, 255, 136, 0.15);
+}
+
+/* ── Light Paper Mode ── */
+[data-theme="light"] {
+  --background: #f4f4f0;
+  --foreground: #1a2e1a;
+  --surface: rgba(255, 255, 252, 0.9);
+  --surface-elevated: rgba(255, 255, 255, 0.95);
+  --muted: #5a6b5a;
+  --border: rgba(26, 90, 50, 0.2);
+  --accent-green: #1a8a4a;
+  --accent-cyan: #0077aa;
+  --accent-amber: #b87800;
+  --accent-red: #cc3333;
+  --glow: 0 0 20px rgba(26, 138, 74, 0.06);
+  --glow-strong: 0 0 40px rgba(26, 138, 74, 0.1);
+}
+
+/* ── High-Contrast Terminal ── */
+[data-theme="terminal-hc"] {
+  --background: #000000;
+  --foreground: #00ff00;
+  --surface: rgba(0, 0, 0, 0.95);
+  --surface-elevated: rgba(0, 20, 0, 0.98);
+  --muted: #00aa00;
+  --border: rgba(0, 255, 0, 0.4);
+  --accent-green: #00ff00;
+  --accent-cyan: #00ffff;
+  --accent-amber: #ffff00;
+  --accent-red: #ff0000;
+  --glow: 0 0 30px rgba(0, 255, 0, 0.2);
+  --glow-strong: 0 0 60px rgba(0, 255, 0, 0.3);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-geist-mono), "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-mono);
+}
+
+/* CRT scanline overlay */
+.scanlines::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+[data-theme="terminal-hc"] .scanlines::before {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 255, 0, 0.03) 1px,
+    rgba(0, 255, 0, 0.03) 2px
+  );
+}
+
+/* Subtle vignette */
+.scanlines::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+[data-theme="light"] .scanlines::after {
+  background: radial-gradient(ellipse at center, transparent 70%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+::selection {
+  background: var(--accent-green);
+  color: var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-green);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+.terminal-window {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
 }
