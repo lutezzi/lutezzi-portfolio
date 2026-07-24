@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { ParticleBackground } from "@/components/ui/ParticleBackground";
 import { useThemeStore } from "@/stores/themeStore";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -10,5 +11,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  return <>{children}</>;
+  return (
+    <>
+      <ParticleBackground />
+      <div className="relative z-10">{children}</div>
+    </>
+  );
 }
