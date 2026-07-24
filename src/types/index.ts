@@ -25,7 +25,8 @@ export type ProjectMockupType =
   | "roles"
   | "moderation"
   | "setup"
-  | "voice";
+  | "voice"
+  | "music";
 
 export interface ProjectItem {
   slug: string;
